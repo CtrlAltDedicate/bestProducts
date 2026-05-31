@@ -14,9 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Create logs directory for Django logging
-RUN mkdir -p logs
-
 RUN python manage.py collectstatic --noinput || true
 
 EXPOSE 8000
