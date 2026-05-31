@@ -1,0 +1,79 @@
+.back-btn {
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+@media (max-width: 680px) {
+  .detail-card { grid-template-columns: 1fr; }
+}
+
+.detail-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  min-height: 280px;
+  padding: 1.5rem;
+}
+
+.detail-image img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.detail-info h1 {
+  font-size: 1.4rem;
+  color: var(--navy);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.detail-price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.detail-description {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.detail-meta div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.detail-meta span { color: var(--gray-400); min-width: 80px; }
+.detail-meta strong { color: var(--gray-800); }
+
+.detail-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.product-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--orange);
+  font-weight: 600;
+}
