@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+*.log
+db.sqlite3
+
+# Environment
+.env
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Docker volumes
+mysql_data/
+
+# VS Code
+.vscode/
