@@ -153,7 +153,11 @@ class ProductViewSet(viewsets.ModelViewSet):
         Skips any product whose fakestore_id already exists to prevent duplicates.
         """
         try:
-            response = requests.get(FAKESTORE_API_URL, timeout=10)
+            response = requests.get(
+                FAKESTORE_API_URL,
+                timeout=10,
+                headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            )
             response.raise_for_status()
             fakestore_products = response.json()
         except requests.RequestException as e:
