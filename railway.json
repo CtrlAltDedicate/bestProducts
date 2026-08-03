@@ -5,7 +5,7 @@
     "dockerfilePath": "backend/Dockerfile"
   },
   "deploy": {
-    "startCommand": "python manage.py migrate && echo 'Starting gunicorn on port 8000' && gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 120 --log-level debug",
+    "startCommand": "python manage.py check && python manage.py migrate && gunicorn core.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 120 --log-level debug",
     "restartPolicyType": "ON_FAILURE"
   }
 }
