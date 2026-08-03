@@ -4,9 +4,13 @@ WORKDIR /app
 
 # Install system dependencies required by mysqlclient
 RUN apt-get update && apt-get install -y \
-    default-libmysqlclient-dev \
     gcc \
+    g++ \
     pkg-config \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
@@ -14,8 +18,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput || true
-
 EXPOSE 8000
 
-CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
