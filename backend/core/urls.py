@@ -1,9 +1,19 @@
+from django.http import JsonResponse
+from django.conf import settings
+
+def cors_debug(request):
+    return JsonResponse({
+        'CORS_ALLOWED_ORIGINS': settings.CORS_ALLOWED_ORIGINS,
+        'CORS_ALLOW_ALL_ORIGINS': getattr(settings, 'CORS_ALLOW_ALL_ORIGINS', False),
+        'origin_header': request.headers.get('Origin', 'none'),
+    })
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
 from products.views import RegisterView, LoginView, MeView
 
 urlpatterns = [
+    path('debug/cors/', cors_debug, name='cors_debug'),git add backend/core/urls.py
     path('admin/', admin.site.urls),
 
     # Auth endpoints
