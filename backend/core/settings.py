@@ -109,9 +109,11 @@ SIMPLE_JWT = {
 }
 
 # CORS — allow React dev server and production frontend
-CORS_ALLOWED_ORIGINS = os.environ.get(
-    'CORS_ALLOWED_ORIGINS', 'http://localhost,http://localhost:5173'
-).split(',')
+CORS_ALLOWED_ORIGINS = [
+    'https://best-products-seven.vercel.app',
+    'http://localhost',
+    'http://localhost:5173',
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
